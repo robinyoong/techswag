@@ -1,6 +1,6 @@
 {
   "plugins": ["simple-import-sort", "prettier"],
-  "extends": ["next/core-web-vitals", "next/babel"],
+  "extends": ["next/core-web-vitals"],
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
