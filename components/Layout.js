@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import Dropdown from './Dropdown';
+import MobileMenu from './MobileMenu';
 import Navbar from './Navbar';
 
 export default function Layout({ children }) {
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar toggleMenu={toggleMenu} />
-      <Dropdown isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <main>{children}</main>
     </>
   );

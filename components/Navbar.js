@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Navbar({ toggleMenu }) {
   return (
     <nav
-      className="flex justify-between md:justify-start items-center h-16 px-8 relative shadow-sm"
+      className="flex justify-between md:justify-start items-center h-16 px-8 relative shadow-sm max-w-7xl mx-auto"
       role="navigation"
     >
       <Link href="/">
