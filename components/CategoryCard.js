@@ -14,8 +14,8 @@ export default function CategoryCard({ category }) {
             layout="fill"
             className="object-cover rounded-xl"
           />
-          <div className="flex justify-center items-center">
-            <h5 className="font-semibold text-lg">{`${name}`}</h5>
+          <div className="flex justify-center items-end pb-6 bg-gradient-to-t from-gray-600 hover:bg-gradient-to-t hover:from-yellow-600 transition duration-700 text-white rounded-xl">
+            <h5 className="font-medium tracking-wide text-xl">{`${name}`}</h5>
           </div>
         </div>
       </a>

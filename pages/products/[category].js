@@ -8,8 +8,12 @@ export default function Category({ data, categoryNames }) {
   const router = useRouter();
   const { category: pageSlug } = router.query;
 
-  const filterCategories = categoryNames?.filter(
-    (category) => category.slug !== pageSlug
+  const filterCategories = categoryNames
+    ?.filter((category) => category.slug !== pageSlug)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const pageTitle = categoryNames?.filter(
+    (category) => category.slug === pageSlug
   );
 
   console.log('filterCategories', filterCategories);
@@ -31,7 +35,15 @@ export default function Category({ data, categoryNames }) {
           </div>
         }
       </div>
-      <ProductsWrapper products={data} />
+      {data.length ? (
+        <div className="min-h-screen">
+          <ProductsWrapper products={data} />
+        </div>
+      ) : (
+        <div className="max-w-7xl mx-auto flex justify-center py-20 text-white text-2xl">
+          <h1>No items found</h1>
+        </div>
+      )}
     </>
   );
 }

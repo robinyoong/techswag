@@ -1,8 +1,13 @@
+import AddBrand from '../components/AddBrand';
+import Tabs from '../components/Tabs';
 import { supabase } from '../utils/supabaseClient';
 
 export default function InputPage({ user }) {
-  console.log(user);
-  return <h1>hi</h1>;
+  return (
+    <div className="max-w-7xl mx-auto py-8">
+      <Tabs />
+    </div>
+  );
 }
 
 export async function getServerSideProps({ req }) {

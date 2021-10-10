@@ -12,25 +12,33 @@ export default function Navbar({ toggleMenu, authenicatedState }) {
 
   return (
     <nav
-      className="flex justify-between md:justify-start items-center h-16 px-8 relative shadow-sm max-w-7xl mx-auto"
+      className="flex justify-between items-center h-16 px-8 relative shadow-sm max-w-7xl mx-auto text-white"
       role="navigation"
     >
-      <Link href="/">
-        <a className="mr-8">techswag</a>
-      </Link>
-      <div
-        className="cursor-pointer md:hidden justify-self-end"
-        onClick={toggleMenu}
-      >
-        <MenuIcon className="h-6 w-6" />
+      <div className="flex items-center">
+        <Link href="/">
+          <a className="mr-8 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-green-200 to-yellow-300">
+            techswag
+          </a>
+        </Link>
+        <div
+          className="cursor-pointer md:hidden justify-self-end"
+          onClick={toggleMenu}
+        >
+          <MenuIcon className="h-6 w-6" />
+        </div>
+
+        {/* <div className="hidden md:block space-x-4 justify-between">
+          <Link href="/brands">
+            <a>Brands</a>
+          </Link>
+          <Link href="/categories">
+            <a>Categories</a>
+          </Link>
+        </div> */}
       </div>
-      <div className="hidden md:block space-x-4 justify-between">
-        <Link href="/brands">
-          <a>Brands</a>
-        </Link>
-        <Link href="/categories">
-          <a>Categories</a>
-        </Link>
+
+      <div className="space-x-4">
         {authenicatedState === 'not-authenticated' && (
           <Link href="/sign-in">
             <a>Sign In</a>

@@ -50,7 +50,7 @@ export default function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <div>
+    <div className="bg-dark min-h-screen">
       <Layout authenicatedState={authenticatedState}>
         <Component {...pageProps} />
       </Layout>
