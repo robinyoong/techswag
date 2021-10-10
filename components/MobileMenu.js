@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
-export default function Dropdown({ isMenuOpen, toggleMenu }) {
+export default function Dropdown({
+  isMenuOpen,
+  toggleMenu,
+  authenicatedState,
+}) {
   return (
     <div
       className={

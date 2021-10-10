@@ -3,8 +3,11 @@ import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
 import Navbar from './Navbar';
 
-export default function Layout({ children }) {
+export default function Layout({ children, ...props }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const authenicatedState = props.authenicatedState;
+
+  console.log(authenicatedState);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,8 +31,12 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <Navbar toggleMenu={toggleMenu} />
-      <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <Navbar toggleMenu={toggleMenu} authenicatedState={authenicatedState} />
+      <MobileMenu
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        authenicatedState={authenicatedState}
+      />
       <main>{children}</main>
     </>
   );

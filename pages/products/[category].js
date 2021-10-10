@@ -20,14 +20,12 @@ export default function Category({ data, categoryNames }) {
     <>
       <div className="mx-auto py-8 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 h-64 flex flex-col justify-center items-center">
         <h1 className="text-white font-medium text-3xl py-8">{pageSlug}</h1>
-
         {
           <div>
             {filterCategories?.map((category) => (
               <FilterButton
                 key={`category-${category.id}`}
                 category={category}
-                className="pr-4"
               />
             ))}
           </div>
@@ -45,7 +43,7 @@ export async function getStaticPaths() {
       .select('slug');
 
     if (error) {
-      console.error(error);
+      console.error({ error });
     }
 
     const paths = categories.map((category) => ({
