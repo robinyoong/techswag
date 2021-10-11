@@ -13,7 +13,7 @@ export default function Example() {
               Styling beyond your CSS
             </h1>
             <p className="mt-4 text-xl text-white">
-              Merch from your favourite tech brands all in one place.
+              Swags from your favourite tech brands all in one place.
             </p>
           </div>
           <div>
@@ -27,29 +27,29 @@ export default function Example() {
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/google-socks-6.3505392720880405.jpeg" />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
-                      </div>
-                    </div>
-                    <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/image-1.2411420840225706.jpeg" />
                       </div>
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/ScreenShot2021-05-18at7.56.50PM_600x.png" />
                       </div>
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <HeroImage imageUrl="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" />
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/netflix beam-7.029316102087487.jpg" />
+                      </div>
+                      <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/671bi2n1ob431 (1).jpeg" />
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/netflix-pillow.jpeg" />
+                      </div>
+                      <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <HeroImage imageUrl="https://jegssddlmyfxmneiwkys.supabase.in/storage/v1/object/public/swag/webflow mug-8.865766843882781.jpeg" />
                       </div>
                     </div>
                   </div>

@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
       <Link href={product.url}>
         <a>
           <Image
-            className="rounded-xl object-cover "
+            className="rounded-xl object-cover"
             src={product.image}
             alt=""
             width="420"
@@ -16,9 +16,10 @@ export default function ProductCard({ product }) {
           />
           <div className="flex justify-between px-1 pt-4 ">
             <Image
+              className="object-contain"
               src={product.brand.logo}
               alt={`${product.brand.name} logo`}
-              width="40"
+              width="60"
               height="40"
             />
             <div className="flex items-center text-right">
