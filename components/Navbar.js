@@ -21,20 +21,11 @@ export default function Navbar({ toggleMenu, authenicatedState }) {
             techswag
           </a>
         </Link>
-        <div
+        {/* <div
           className="cursor-pointer md:hidden justify-self-end"
           onClick={toggleMenu}
         >
           <MenuIcon className="h-6 w-6" />
-        </div>
-
-        {/* <div className="hidden md:block space-x-4 justify-between">
-          <Link href="/brands">
-            <a>Brands</a>
-          </Link>
-          <Link href="/categories">
-            <a>Categories</a>
-          </Link>
         </div> */}
       </div>
 
