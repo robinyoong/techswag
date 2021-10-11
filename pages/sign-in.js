@@ -7,7 +7,8 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState('');
 
-  async function signIn() {
+  async function signIn(e) {
+    e.preventDefault();
     if (!email) return;
     const { data, error } = await supabase.auth.signIn({
       email,
@@ -22,8 +23,10 @@ export default function SignIn() {
 
   if (submitted) {
     return (
-      <div>
-        <h1 className="text-gray-200">Please check your email to sign in</h1>
+      <div className="max-w-7xl mx-auto flex justify-center items-center text-3xl py-40">
+        <h1 className="text-gray-200">
+          Please check you email for the login link.
+        </h1>
       </div>
     );
   }
@@ -64,7 +67,7 @@ export default function SignIn() {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-yellow-300 to-red-500 hover:bg-indigo-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-white"
-                onClick={() => signIn()}
+                onClick={(e) => signIn(e)}
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <LockClosedIcon
