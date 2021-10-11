@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import Layout from '../components/Layout';
-import { SelectedBrandContext } from '../utils/store';
 import { supabase } from '../utils/supabaseClient';
 
 export default function MyApp({ Component, pageProps }) {
@@ -55,11 +54,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <div className="bg-dark min-h-screen">
       <Layout authenicatedState={authenticatedState}>
-        <SelectedBrandContext.Provider
-          value={[selectedBrand, setSelectedBrand]}
-        >
-          <Component {...pageProps} />
-        </SelectedBrandContext.Provider>
+        <Component {...pageProps} />
       </Layout>
     </div>
   );

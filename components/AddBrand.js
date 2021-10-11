@@ -11,8 +11,6 @@ export default function AddProduct({ user }) {
   const [storeUrl, setStoreUrl] = useState('');
   const uploadLogoPickerRef = useRef(null);
 
-  console.log(user);
-
   const uploadToClient = (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
@@ -24,7 +22,6 @@ export default function AddProduct({ user }) {
   const submitNewBrand = async (e) => {
     e.preventDefault();
     if (!brandName || !logo) return;
-    console.log('checkpoint');
 
     // UPLOAD IMAGE TO STORAGE
     const fileNameAndExt = logoFile.name.split('.');
@@ -39,8 +36,6 @@ export default function AddProduct({ user }) {
     if (error) {
       console.log('Something went wrong with the image upload', error);
     }
-
-    console.log('image upload data', imageData);
 
     // GET PUBLIC URL OF IMAGE
 
@@ -59,10 +54,6 @@ export default function AddProduct({ user }) {
     console.log('submitted data', brandSubmission);
     clearAll();
   };
-
-  useEffect(() => {
-    console.log(logo);
-  }, [logo]);
 
   const clearAll = () => {
     setBrandName('');
@@ -105,7 +96,7 @@ export default function AddProduct({ user }) {
             htmlFor="first-name"
             className="block text-sm font-medium text-gray-200 sm:mt-px sm:pt-2"
           >
-            Store Url
+            Store URL
           </label>
           <div className="mt-1 sm:mt-0 sm:col-span-2">
             <input

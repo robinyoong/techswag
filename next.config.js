@@ -4,6 +4,7 @@ module.exports = {
     domains: [
       'tailwindui.com',
       'jegssddlmyfxmneiwkys.supabase.in',
+      'jegssddlmyfxmneiwkys.supabase.co',
       'supabase.io',
     ],
   },

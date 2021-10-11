@@ -1,6 +1,7 @@
 import { Tab } from '@headlessui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { supabase } from '../utils/supabaseClient';
 import AddBrand from './AddBrand';
 import AddProduct from './AddProduct';
 
@@ -10,6 +11,42 @@ function classNames(...classes) {
 
 export default function Example() {
   const tabs = ['Add Brand', 'Add Product'];
+  const [orderCategories, setOrderedCategories] = useState(null);
+  const [brands, setBrands] = useState(null);
+
+  // GET LIST OF ALL BRANDS
+  const fetchBrands = async () => {
+    const { data, error } = await supabase.from('brands').select();
+    setBrands(data);
+    console.log('brands', brands);
+  };
+
+  // GET LIST OF ALL CATEGORIES
+  const fetchCategories = async () => {
+    const { data, error } = await supabase.from('categories').select('*');
+
+    const orderedCategories = data.sort((a, b) => a.name.localeCompare(b.name));
+    console.log('orderly cat', orderedCategories);
+    setOrderedCategories(orderedCategories);
+  };
+
+  useEffect(() => {
+    fetchBrands();
+    const mySubscription = supabase
+      .from('brands')
+      .on('*', () => fetchBrands())
+      .subscribe();
+    return () => supabase.removeSubscription(mySubscription);
+  }, []);
+
+  useEffect(() => {
+    fetchCategories();
+    const mySubscription = supabase
+      .from('categories')
+      .on('*', () => fetchCategories())
+      .subscribe();
+    return () => supabase.removeSubscription(mySubscription);
+  }, []);
 
   return (
     <div className="w-full max-w-7xl px-2 sm:px-0">
@@ -37,7 +74,7 @@ export default function Example() {
             <AddBrand />
           </Tab.Panel>
           <Tab.Panel className="bg-dark rounded-xl p-3 border border-gray-700">
-            <AddProduct />
+            <AddProduct brands={brands} categories={orderCategories} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

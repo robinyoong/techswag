@@ -1,21 +1,17 @@
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
-import { Fragment, useContext, useState } from 'react';
-
-import { SelectedBrandContext } from '../utils/store';
+import { Fragment, useState } from 'react';
 
 /* eslint-disable */
 
-const Dropdown = ({ label, brands }) => {
-  console.log('brands', brands);
+const Dropdown = ({ label, list, handler }) => {
+  console.log('list', list);
   const [selected, setSelected] = useState('');
-  const [selectedBrand, setSelectedBrand] = useContext(SelectedBrandContext);
-  console.log('selected', selected);
 
   return (
     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
       <label
-        htmlFor="brand-name"
+        htmlFor="list-name"
         className="block text-sm font-medium text-gray-200 sm:mt-px sm:pt-2"
       >
         {label}
@@ -39,10 +35,10 @@ const Dropdown = ({ label, brands }) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base border border-gray-700 text-gray-200 bg-dark rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {brands?.map((brand, brandId) => (
+              <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base border border-gray-700 text-gray-200 bg-dark rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10">
+                {list?.map((listItem, listItemId) => (
                   <Listbox.Option
-                    key={brandId}
+                    key={listItemId}
                     className={({ active }) =>
                       `${
                         active
@@ -51,8 +47,8 @@ const Dropdown = ({ label, brands }) => {
                       }
                           cursor-pointer select-none relative py-2 pl-10 pr-4`
                     }
-                    value={brand}
-                    onChange={setSelectedBrand(selected)}
+                    value={listItem}
+                    onChange={handler(selected)}
                   >
                     {({ selected, active }) => (
                       <>
@@ -61,7 +57,7 @@ const Dropdown = ({ label, brands }) => {
                             selected ? 'font-medium' : 'font-normal'
                           } block truncate`}
                         >
-                          {brand.name}
+                          {listItem.name}
                         </span>
                         {selected ? (
                           <span

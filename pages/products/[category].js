@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 import FilterButton from '../../components/FilterButton';
 import ProductsWrapper from '../../components/ProductsWrapper';
 import { supabase } from '../../utils/supabaseClient';
 
-export default function Category({ data, categoryNames }) {
+export default function Category({ categoryNames }) {
   const router = useRouter();
   const { category: pageSlug } = router.query;
+  const [products, setProducts] = useState(null);
 
   const filterCategories = categoryNames
     ?.filter((category) => category.slug !== pageSlug)
@@ -17,8 +19,27 @@ export default function Category({ data, categoryNames }) {
   );
 
   console.log('filterCategories', filterCategories);
-  console.log('data', data);
+  console.log('products', products);
   console.log('categoryNames', categoryNames);
+
+  // QUERYING FOR DATA BASED ON THE SELECTED CATEGORY
+  const fetchProducts = async () => {
+    const { data, error } = await supabase
+      .from('products')
+      .select(`id, name, image, url, category, brand:brand_id(*)`)
+      .eq('category', pageSlug);
+
+    if (error) {
+      console.log(error);
+    }
+
+    console.log('this is the data', data);
+    setProducts(data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [pageSlug]);
 
   return (
     <>
@@ -35,9 +56,9 @@ export default function Category({ data, categoryNames }) {
           </div>
         }
       </div>
-      {data.length ? (
+      {products?.length ? (
         <div className="min-h-screen">
-          <ProductsWrapper products={data} />
+          <ProductsWrapper products={products} />
         </div>
       ) : (
         <div className="max-w-7xl mx-auto flex justify-center py-20 text-white text-2xl">
@@ -76,21 +97,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { category } = params;
   try {
-    // QUERYING FOR DATA BASED ON THE SELECTED CATEGORY
-    const { data, error } = await supabase
-      .from('products')
-      .select(
-        `id, name, currency, image, price, url, category, brand:brand_id(*)`
-      )
-      .eq('category', category);
-
-    console.log('this is the data', data);
-
     const { data: categoryNames } = await supabase.from('categories').select();
 
     return {
       props: {
-        data,
         categoryNames,
       },
     };
