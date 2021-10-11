@@ -5,12 +5,15 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import Layout from '../components/Layout';
+import { SelectedBrandContext } from '../utils/store';
 import { supabase } from '../utils/supabaseClient';
 
 export default function MyApp({ Component, pageProps }) {
   const [authenticatedState, setAuthenticatedState] =
     useState('not-authenticated');
   const router = useRouter();
+
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
@@ -52,7 +55,11 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <div className="bg-dark min-h-screen">
       <Layout authenicatedState={authenticatedState}>
-        <Component {...pageProps} />
+        <SelectedBrandContext.Provider
+          value={[selectedBrand, setSelectedBrand]}
+        >
+          <Component {...pageProps} />
+        </SelectedBrandContext.Provider>
       </Layout>
     </div>
   );

@@ -1,4 +1,8 @@
-export default function TextInputField({ label }) {
+import { useState } from 'react';
+
+export default function TextInputField({ label, setBrandName }) {
+  const [userInput, setUserInput] = useState(null);
+
   return (
     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
       <label
@@ -14,6 +18,7 @@ export default function TextInputField({ label }) {
           id="brand-name"
           autoComplete="brand-name"
           className="max-w-lg block w-full shadow-sm focus:ring-white focus:border-gray-200 sm:max-w-xs sm:text-sm border-gray-700 bg-dark rounded-md text-gray-200"
+          onChange={(e) => setUserInput(e.target.value)}
         />
       </div>
     </div>

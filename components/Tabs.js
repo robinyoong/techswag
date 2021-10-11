@@ -2,6 +2,7 @@ import { Tab } from '@headlessui/react';
 import { useState } from 'react';
 
 import AddBrand from './AddBrand';
+import AddProduct from './AddProduct';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -32,20 +33,11 @@ export default function Example() {
           ))}
         </Tab.List>
         <Tab.Panels className="mt-8 ">
-          <Tab.Panel
-            className={classNames(
-              'bg-dark rounded-xl p-3 border border-gray-700'
-            )}
-          >
+          <Tab.Panel className="bg-dark rounded-xl p-3 border border-gray-700">
             <AddBrand />
           </Tab.Panel>
-          <Tab.Panel
-            className={classNames(
-              'bg-white rounded-xl p-3',
-              'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60'
-            )}
-          >
-            hi2
+          <Tab.Panel className="bg-dark rounded-xl p-3 border border-gray-700">
+            <AddProduct />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

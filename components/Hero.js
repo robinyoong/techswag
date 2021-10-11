@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import HeroImage from './HeroImage';
 
@@ -54,12 +55,11 @@ export default function Example() {
                   </div>
                 </div>
               </div>
-              <a
-                href="#"
-                className="inline-block text-center border-2 border-white rounded-full py-3 px-8 font-medium text-white hover:bg-gradient-to-r from-yellow-300 hover:white to-red-500"
-              >
-                View Styles
-              </a>
+              <Link href="/products/t-shirts">
+                <a className="inline-block text-center border-2 border-white rounded-full py-3 px-8 font-medium text-white hover:bg-gradient-to-r from-yellow-300 hover:white to-red-500">
+                  View Styles
+                </a>
+              </Link>
             </div>
           </div>
         </div>

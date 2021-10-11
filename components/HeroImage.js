@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 export default function HeroImage({ imageUrl }) {
-  console.log(imageUrl);
   return (
     <Image
       src={imageUrl}
